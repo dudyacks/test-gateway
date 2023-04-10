@@ -1,0 +1,32 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: demo
+          uri: lb://demo
+          predicates:
+            - Path=/api/demo/**
+          filters:
+            - StripPrefix=2
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - '*'
+            allowedHeaders:
+              - '*'
+            allowedMethods:
+              - GET
+              - POST
+              - OPTIONS
+            allow-credentials: true
+  application:
+    name: demo-gateway
+server:
+  port: 8085
+
+eureka:
+  client:
+    registry-fetch-interval-seconds: 30
