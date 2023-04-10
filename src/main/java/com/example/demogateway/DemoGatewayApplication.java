@@ -63,7 +63,7 @@ public class DemoGatewayApplication {
 
         return builder.routes()
                 .route("test-demo", r -> r.path("/api/demo/*", "/api/demo/*")
-                        .uri("http://172.30.166.28"))
+                        .uri("http://172.30.183.119:8081"))
                 .build();
     }
 
