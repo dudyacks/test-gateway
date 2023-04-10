@@ -17,11 +17,6 @@ spring:
               - '*'
             allowedMethods:
               - '*'
-    kubernetes:
-      reload:
-        enabled: true
-        mode: polling
-        period: 5000
   application:
     name: demo-gateway
 server:
