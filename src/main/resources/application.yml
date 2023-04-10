@@ -24,3 +24,8 @@ spring:
     name: demo-gateway
 server:
   port: 8085
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
