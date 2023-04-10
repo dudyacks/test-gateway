@@ -1,22 +1,4 @@
 spring:
-  cloud:
-    gateway:
-      routes:
-        - id: demo
-          uri: lb://demo
-          predicates:
-            - Path=/api/demo/**
-          filters:
-            - StripPrefix=2
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins:
-              - '*'
-            allowedHeaders:
-              - '*'
-            allowedMethods:
-              - '*'
   application:
     name: demo-gateway
 server:
