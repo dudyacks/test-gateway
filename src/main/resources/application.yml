@@ -16,9 +16,7 @@ spring:
             allowedHeaders:
               - '*'
             allowedMethods:
-              - GET
-              - POST
-              - OPTIONS
+              - '*'
   application:
     name: demo-gateway
 server:
