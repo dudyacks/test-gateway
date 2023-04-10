@@ -19,8 +19,6 @@ import java.util.List;
 @EnableDiscoveryClient
 @RestController
 public class DemoGatewayApplication {
-
-    @Autowired
     RestTemplate restTemplate;
 
     @Autowired
