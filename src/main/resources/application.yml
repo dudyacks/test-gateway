@@ -3,7 +3,7 @@ spring:
     gateway:
       routes:
         - id: demo
-          uri: lb://demo
+          uri: https://test-demo-dudyacks94-dev.apps.sandbox-m3.1530.p1.openshiftapps.com
           predicates:
             - Path=/api/demo/**
           filters:
