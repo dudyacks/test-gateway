@@ -57,14 +57,4 @@ public class DemoGatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(DemoGatewayApplication.class, args);
     }
-
-    @Bean
-    public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
-
-        return builder.routes()
-                .route("test-demo", r -> r.path("/api/demo/*", "/api/demo/*")
-                        .uri("http://test-demo:8081"))
-                .build();
-    }
-
 }
