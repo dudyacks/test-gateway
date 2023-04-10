@@ -17,6 +17,9 @@ spring:
               - '*'
             allowedMethods:
               - '*'
+      discovery:
+        locator:
+          enabled: true
   application:
     name: demo-gateway
 server:
