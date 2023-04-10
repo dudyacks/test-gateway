@@ -19,6 +19,8 @@ spring:
               - '*'
     kubernetes:
       enabled: true
+      discovery:
+        enabled: true
       reload:
         enabled: true
       gateway:
@@ -36,10 +38,3 @@ management:
     web:
       exposure:
         include: '*'
-
-logging:
-  level:
-    root: DEBUG
-    org.springframework.gateway: TRACE
-    org.springframework.cloud.gateway: TRACE
-    org.springframework.cloud.loadbalancer: TRACE
