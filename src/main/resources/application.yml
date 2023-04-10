@@ -17,12 +17,29 @@ spring:
               - '*'
             allowedMethods:
               - '*'
+    kubernetes:
+      enabled: true
+      reload:
+        enabled: true
+      gateway:
+        discovery:
+          locator:
+            lowerCaseServiceId: true
+            enabled: true
   application:
     name: demo-gateway
 server:
   port: 8085
+
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework.gateway: TRACE
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.cloud.loadbalancer: TRACE
