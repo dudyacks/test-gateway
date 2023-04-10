@@ -62,8 +62,8 @@ public class DemoGatewayApplication {
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
 
         return builder.routes()
-                .route("demo", r -> r.path("/api/demo/*", "/api/demo/*")
-                        .uri("http://demo:8081"))
+                .route("test-demo", r -> r.path("/api/demo/*", "/api/demo/*")
+                        .uri("http://test-demo:8081"))
                 .build();
     }
 
