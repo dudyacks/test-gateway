@@ -3,16 +3,3 @@ spring:
     name: demo-gateway
 server:
   port: 8085
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    restart:
-      enabled: true
-    shutdown:
-      enabled: true
-    health:
-      show-details: ALWAYS
