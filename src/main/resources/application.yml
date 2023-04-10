@@ -23,9 +23,3 @@ spring:
     name: demo-gateway
 server:
   port: 8085
-
-eureka:
-  client:
-    registry-fetch-interval-seconds: 30
-    register-with-eureka: false
-    fetch-registry: false
