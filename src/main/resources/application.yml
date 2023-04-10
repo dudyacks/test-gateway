@@ -17,11 +17,6 @@ spring:
               - '*'
             allowedMethods:
               - '*'
-      discovery:
-        locator:
-          enabled: true
-          url-expression: "'http://'+serviceId+':'+getPort()"
-          lower-case-service-id: true
   application:
     name: demo-gateway
 server:
