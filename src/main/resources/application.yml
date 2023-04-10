@@ -20,7 +20,7 @@ spring:
       discovery:
         locator:
           enabled: true
-          url-expression: "image-registry.openshift-image-registry.svc:5000"
+          url-expression: "'http://'+serviceId+':'+getPort()"
           lower-case-service-id: true
   application:
     name: demo-gateway
