@@ -1,4 +1,22 @@
 spring:
+  cloud:
+    gateway:
+      routes:
+        - id: demo
+          uri: 172.30.183.119:8081
+          predicates:
+            - Path=/api/demo/**
+          filters:
+            - StripPrefix=2
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - '*'
+            allowedHeaders:
+              - '*'
+            allowedMethods:
+              - '*'
   application:
     name: demo-gateway
 server:

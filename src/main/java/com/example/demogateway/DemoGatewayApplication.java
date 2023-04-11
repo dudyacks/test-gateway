@@ -19,52 +19,9 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@RestController
 public class DemoGatewayApplication {
-    RestTemplate restTemplate;
-
-    @Autowired
-    private DiscoveryClient discoveryClient;
-
-    @GetMapping("/")
-    @ResponseBody
-    public String hello() {
-        return "GatewayApplication says hello!";
-    }
-
-    @GetMapping("/test")
-    @ResponseBody
-    public String invokeTestService() {
-        List<ServiceInstance> testServiceInstances = this.discoveryClient.getInstances("test-service");
-        return restTemplate.getForObject(testServiceInstances.get(0).getUri(), String.class);
-    }
-
-    @GetMapping("/services")
-    public List<String> services() {
-        return this.discoveryClient.getServices();
-    }
-
-    @GetMapping("/services/{serviceId}")
-    public List<ServiceInstance> servicesById(@PathVariable("serviceId") String serviceId) {
-        return this.discoveryClient.getInstances(serviceId);
-    }
-
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-
-    public static void main(String[] args) {
+  public static void main(String[] args) {
         SpringApplication.run(DemoGatewayApplication.class, args);
-    }
-
-    @Bean
-    public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
-
-        return builder.routes()
-                .route("test-demo", r -> r.path("/api/demo/*")
-                        .uri("http://172.30.183.119:8081"))
-                .build();
     }
 
 }
