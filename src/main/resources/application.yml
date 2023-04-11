@@ -3,7 +3,7 @@ spring:
     gateway:
       routes:
         - id: demo
-          uri: http://test-demo.dudyacks94-dev.svc.cluster.local:8081
+          uri: http://test-spring-app.dudyacks94-dev.svc.cluster.local:8081
           predicates:
             - Path=/api/demo/**
           filters:
