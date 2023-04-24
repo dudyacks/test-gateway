@@ -1,17 +1,18 @@
 package com.example.demogateway;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.reactive.function.server.EntityResponse;
-
-import java.net.http.HttpResponse;
-import java.util.List;
 
 @RestController
 public class HolaController {
-    @GetMapping("")
+
+    @Value("${prueba}")
+    private String prueba;
+
+    @GetMapping("/prueba")
     public ResponseEntity<?> getStateByCountry(){
-        return ResponseEntity.ok("Hola");
+        return ResponseEntity.ok(prueba);
     }
 }
