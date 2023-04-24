@@ -1,9 +1,8 @@
 FROM openjdk:17-jdk-alpine AS builder
-COPY . /source
+COPY . /source/
 WORKDIR source
 RUN ./gradlew clean build
-RUN echo $(ls -1 build/libs)
-COPY build/libs/*.jar application.jar
+COPY build/libs/demo-gateway-0.0.1-SNAPSHOT.jar /source/application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM openjdk:17-jdk-alpine
