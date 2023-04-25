@@ -2,8 +2,7 @@ FROM openjdk:17-jdk-slim AS build
 COPY . /app
 WORKDIR /app
 RUN ./gradlew clean bootJar
-RUN echo $(ls -1 build/libs)
-COPY build/libs/demo-gateway-0.0.1-SNAPSHOT.jar /app/application.jar
+COPY app/build/libs/demo-gateway-0.0.1-SNAPSHOT.jar application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM openjdk:17-jdk-slim AS deploy
