@@ -2,11 +2,10 @@ FROM openjdk:17-jdk-slim AS build
 COPY . /app
 WORKDIR /app
 RUN ./gradlew clean build
-
+COPY /app/build/libs/*.jar ./application.jar
+RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM openjdk:17-jdk-slim AS deploy
-COPY --from=build /app/build/libs/*.jar ./application.jar
-RUN java -Djarmode=layertools -jar application.jar extract
 WORKDIR application
 COPY --from=build app/dependencies/ ./
 COPY --from=build app/spring-boot-loader/ ./
