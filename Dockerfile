@@ -1,7 +1,7 @@
 FROM openjdk:17-jdk-slim AS build
 COPY . /app
 WORKDIR /app
-RUN ./gradlew clean build
+RUN ./gradlew clean bootJar
 COPY /app/build/libs/*.jar ./application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
